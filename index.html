@@ -1,35 +1,54 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metaludix - Carrusel</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metaludix - Plataforma Futurista</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-    <header>
-        <div class="menu">
-            <h1>Metaludix</h1>
-            <nav>
-                <a href="#">Iniciar sesion</a>
-            </nav>
-        </div>
-    </header>
+  <!-- Título principal -->
+  <header class="header">
+    <h1 class="main-title">Metaludix</h1>
+    <button class="login-btn">Iniciar Sesión</button>
+  </header>
 
-    <div class="carousel-wrapper">
-        <div class="carousel">
-            <div class="carousel-item">Work</div>
-            <div class="carousel-item">Learn</div>
-            <div class="carousel-item">Play</div>
-            <div class="carousel-item">Entretaiment</div>
-            <div class="carousel-item">About us</div>
-        </div>
+  <!-- Carrusel -->
+  <section class="carousel-section">
+    <div class="carousel">
+      <div class="carousel-item">
+        <img src="hub-juego.jpg" alt="HUB de Juego">
+        <p>HUB de Juego</p>
+      </div>
+      <div class="carousel-item">
+        <img src="hub-estudio.jpg" alt="HUB de Estudio">
+        <p>HUB de Estudio</p>
+      </div>
+      <div class="carousel-item">
+        <img src="hub-entretenimiento.jpg" alt="HUB de Entretenimiento">
+        <p>HUB de Entretenimiento</p>
+      </div>
+      <div class="carousel-item">
+        <img src="hub-trabajo.jpg" alt="HUB de Trabajo">
+        <p>HUB de Trabajo</p>
+      </div>
     </div>
+    <div class="carousel-controls">
+      <button id="prev-btn">&#9664;</button>
+      <button id="next-btn">&#9654;</button>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2024 Metaludix. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="about">
+      <h3>About Us</h3>
+      <p>Metaludix es una plataforma futurista diseñada para conectar aprendizaje, trabajo y entretenimiento en un solo lugar.</p>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2024 Metaludix. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 </body>
 </html>
