@@ -1,55 +1,48 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metaludix</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metaludix</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <h1 class="main-title">Metaludix</h1>
-    <button class="login-btn">Iniciar sesión</button>
-  </header>
-
-  <!-- Carrusel -->
-  <div class="carousel-section">
-    <div class="carousel-wrapper">
-      <button class="carousel-prev">‹</button>
-      <div class="carousel">
-        <div class="carousel-item">
-          <img src="hub-juego.jpg" alt="Hub de Juego">
-          <p>HUB de Juego</p>
-        </div>
-        <div class="carousel-item">
-          <img src="hub-estudio.jpg" alt="Hub de Estudio">
-          <p>HUB de Estudio</p>
-        </div>
-        <div class="carousel-item">
-          <img src="hub-entretenimiento.jpg" alt="Hub de Entretenimiento">
-          <p>HUB de Entretenimiento</p>
-        </div>
-        <div class="carousel-item">
-          <img src="hub-trabajo.jpg" alt="Hub de Trabajo">
-          <p>HUB de Trabajo</p>
-        </div>
-      </div>
-      <button class="carousel-next">›</button>
+    <!-- Contenedor de video para el fondo -->
+    <div class="camera-background">
+        <video id="camera-stream" autoplay playsinline></video>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="about">
-      <h3>Sobre nosotros</h3>
-      <p>Metaludix es una plataforma futurista diseñada para conectar aprendizaje, trabajo y entretenimiento en un solo lugar.</p>
-    </div>
-    <div class="copyright">
-      <p>&copy; 2024 Metaludix. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+    <!-- Encabezado -->
+    <header>
+        <h1 class="logo">Metaludix</h1>
+        <button class="login-btn">Iniciar Sesión</button>
+    </header>
 
-  <script src="script.js"></script>
+    <!-- Secciones principales -->
+    <main class="main-container">
+        <div class="section" data-name="HUB Juego">
+            <img src="images/game.jpg" alt="HUB Juego">
+            <p>HUB Juego</p>
+        </div>
+        <div class="section" data-name="HUB Estudio">
+            <img src="images/study.jpg" alt="HUB Estudio">
+            <p>HUB Estudio</p>
+        </div>
+        <div class="section" data-name="HUB Entretenimiento">
+            <img src="images/entertainment.jpg" alt="HUB Entretenimiento">
+            <p>HUB Entretenimiento</p>
+        </div>
+        <div class="section" data-name="HUB Trabajo">
+            <img src="images/work.jpg" alt="HUB Trabajo">
+            <p>HUB Trabajo</p>
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Metaludix. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
