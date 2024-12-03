@@ -1,27 +1,24 @@
-const carousel = document.querySelector('.carousel');
-const items = document.querySelectorAll('.carousel-item');
-const prevButton = document.querySelector('.carousel-prev');
-const nextButton = document.querySelector('.carousel-next');
+// Acceder a la cámara del dispositivo y mostrarla como fondo
+const video = document.getElementById('camera-stream');
 
-let currentIndex = 0;
+// Solicitar acceso a la cámara
+navigator.mediaDevices
+    .getUserMedia({ video: true })
+    .then((stream) => {
+        video.srcObject = stream;
+    })
+    .catch((err) => {
+        console.error('Error al acceder a la cámara:', err);
+    });
 
-function updateCarousel() {
-  items.forEach((item, index) => {
-    const offset = index - currentIndex;
-    item.style.transform = `translateX(${offset * 230}px)`; // Espaciado entre cajas
-    item.classList.toggle('active', index === currentIndex);
-  });
-}
+// Configurar el efecto en el logo
+const logo = document.querySelector('.logo');
+const text = logo.textContent;
+logo.innerHTML = ''; // Limpia el contenido
 
-prevButton.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + items.length) % items.length; // Ciclo hacia atrás
-  updateCarousel();
+// Divide las letras y las envuelve en spans
+text.split('').forEach(letter => {
+    const span = document.createElement('span');
+    span.textContent = letter;
+    logo.appendChild(span);
 });
-
-nextButton.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % items.length; // Ciclo hacia adelante
-  updateCarousel();
-});
-
-// Inicializa el carrusel
-updateCarousel();
