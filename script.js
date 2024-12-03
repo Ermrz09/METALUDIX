@@ -1,20 +1,27 @@
 const carousel = document.querySelector('.carousel');
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
+const items = document.querySelectorAll('.carousel-item');
+const prevButton = document.querySelector('.carousel-prev');
+const nextButton = document.querySelector('.carousel-next');
 
 let currentIndex = 0;
 
-const updateCarousel = () => {
-  const itemWidth = document.querySelector('.carousel-item').offsetWidth;
-  carousel.style.transform = `translateX(-${currentIndex * (itemWidth + 20)}px)`;
-};
+function updateCarousel() {
+  items.forEach((item, index) => {
+    const offset = index - currentIndex;
+    item.style.transform = `translateX(${offset * 230}px)`; // Espaciado entre cajas
+    item.classList.toggle('active', index === currentIndex);
+  });
+}
 
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex > 0) ? currentIndex - 1 : 3;
+prevButton.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + items.length) % items.length; // Ciclo hacia atrás
   updateCarousel();
 });
 
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex < 3) ? currentIndex + 1 : 0;
+nextButton.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % items.length; // Ciclo hacia adelante
   updateCarousel();
 });
+
+// Inicializa el carrusel
+updateCarousel();
