@@ -1,105 +1,122 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* General */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1c1c1c; /* Fondo oscuro */
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow: hidden;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #0F0F1C, #1F1F3E); /* Fondo negro profundo con gris espacial */
+  color: #E4F9FF; /* Texto blanco neón */
+  overflow-x: hidden;
 }
 
-header {
-    width: 100%;
-    background-color: #6a4c9c; /* Color púrpura */
-    padding: 15px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
+/* Header */
+.header {
+  text-align: center;
+  padding: 20px;
+  background: #1F1F3E; /* Gris espacial */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.main-title {
+  font-size: 3rem;
+  color: #00C8FF; /* Azul neón */
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
 
-.menu h1 {
-    font-size: 30px;
-    color: white;
+/* Botón de inicio de sesión */
+.login-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #0F0F1C; /* Texto negro profundo */
+  background: #00C8FF; /* Azul neón */
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 18px;
-}
-
-nav a:hover {
-    text-decoration: underline;
+.login-btn:hover {
+  transform: rotate(360deg);
+  background: #6A0DAD; /* Púrpura metálico */
 }
 
 /* Carrusel */
-.carousel-wrapper {
-    display: flex;
-    justify-content: center; /* Centrado del carrusel */
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-    width: 80vw;
-    margin-top: 100px; /* Ajuste para que no se superponga con el header */
+.carousel-section {
+  padding: 50px 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1F1F3E, #0F0F1C); /* Fondo futurista */
+  text-align: center;
 }
 
 .carousel {
-    display: flex;
-    transition: transform 0.3s ease; /* Movimiento suave */
-    will-change: transform;
-    overflow: hidden;
+  display: flex;
+  gap: 30px; /* Espaciado entre elementos */
+  transition: transform 0.5s ease-in-out;
 }
 
 .carousel-item {
-    width: 200px; /* Hacer las cajas más grandes */
-    height: 350px; /* Caja rectangular vertical */
-    background-color: #9b59b6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    font-size: 20px;
-    color: white;
-    margin: 0 20px;
-    cursor: grab;
+  min-width: 400px; /* Tamaño de las tarjetas */
+  max-width: 400px;
+  text-align: center;
+  flex-shrink: 0;
 }
 
-/* Animación de "arrastre" */
-.carousel-wrapper {
-    cursor: grab;
+.carousel-item img {
+  width: 100%; /* Imágenes del mismo ancho */
+  height: 300px; /* Altura fija */
+  object-fit: cover; /* Sin distorsión */
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
-.carousel-wrapper:active {
-    cursor: grabbing;
+.carousel-item p {
+  margin-top: 10px;
+  font-size: 1.2rem; /* Texto más grande */
+  color: #A4FF8F; /* Verde lima */
+  font-weight: bold;
 }
 
-footer {
-    width: 100%;
-    background-color: #6a4c9c;
-    text-align: center;
-    padding: 20px 0;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    color: white;
-    font-size: 16px;
+/* Controles del carrusel */
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.carousel-controls button {
+  background: #00C8FF; /* Azul neón */
+  border: none;
+  padding: 15px 20px; /* Botones más grandes */
+  cursor: pointer;
+  border-radius: 50%;
+  color: #0F0F1C; /* Negro profundo */
+  font-size: 1.5rem; /* Íconos más grandes */
+  transition: background 0.3s ease;
+}
+
+.carousel-controls button:hover {
+  background: #6A0DAD; /* Púrpura metálico */
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  background: #1F1F3E; /* Gris espacial */
+  text-align: center;
+}
+
+.about h3 {
+  font-size: 1.5rem;
+  color: #00C8FF; /* Azul neón */
+}
+
+.copyright p {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #888888; /* Gris claro */
 }
