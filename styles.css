@@ -29,7 +29,7 @@ html, body {
     height: 100%;
     object-fit: cover; /* Ajusta el video al contenedor */
     display: none; /* Mostrar solo si la cámara está activa */
-    opacity: 0.9; /* Opacidad al 90% */
+    opacity: 1; /* Sin opacidad */
 }
 
 /* Encabezado */
