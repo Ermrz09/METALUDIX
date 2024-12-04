@@ -1,14 +1,19 @@
-// Acceder a la cámara del dispositivo y mostrarla como fondo
+// Acceder al elemento de video
 const video = document.getElementById('camera-stream');
 
-// Solicitar acceso a la cámara
+// Configurar acceso a la cámara trasera
 navigator.mediaDevices
-    .getUserMedia({ video: true })
+    .getUserMedia({
+        video: {
+            facingMode: { exact: "environment" } // Solicitar la cámara trasera
+        }
+    })
     .then((stream) => {
+        // Configurar el stream de la cámara como fondo del video
         video.srcObject = stream;
     })
     .catch((err) => {
-        console.error('Error al acceder a la cámara:', err);
+        console.error('Error al acceder a la cámara trasera:', err);
     });
 
 // Configurar el efecto en el logo
