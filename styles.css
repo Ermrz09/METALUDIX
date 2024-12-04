@@ -1,14 +1,14 @@
 /* General */
-body {
+html, body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
     font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 100vh;
-    position: relative;
     overflow: hidden; /* Evitar scroll innecesario */
 }
 
@@ -29,7 +29,7 @@ body {
     height: 100%;
     object-fit: cover; /* Ajusta el video al contenedor */
     display: none; /* Mostrar solo si la cámara está activa */
-    opacity: 0.6;
+    opacity: 0.9; /* Opacidad al 90% */
 }
 
 /* Encabezado */
