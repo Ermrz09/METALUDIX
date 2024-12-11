@@ -3,44 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metaludix</title>
+    <title>MetaLudix</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Contenedor de video para el fondo -->
+    <!-- Background container -->
     <div class="camera-background">
         <video id="camera-stream" autoplay playsinline muted></video>
+        <div class="infinite-background"></div>
     </div>
 
-    <!-- Encabezado -->
+    <!-- Header -->
     <header>
-        <h1 class="logo">Metaludix</h1>
-        <button class="login-btn">Iniciar Sesión</button>
+        <h1 class="logo">
+            <span class="wave large">M</span>
+            <span class="wave">E</span>
+            <span class="wave">T</span>
+            <span class="wave">A</span>
+            <span class="wave large">L</span>
+            <span class="wave">U</span>
+            <span class="wave">D</span>
+            <span class="wave">I</span>
+            <span class="wave">X</span>
+        </h1>
+        <button class="fullscreen-btn" onclick="toggleFullScreen()">Fullscreen</button>
     </header>
 
-    <!-- Secciones principales -->
+    <!-- Boxi -->
+    <div class="boxi">
+        <div class="boxi-head"></div>
+        <div class="boxi-body"></div>
+        <div class="boxi-arms"></div>
+        <p class="boxi-message" id="boxi-message">Di "Boxi" para activar comandos de voz.</p>
+    </div>
+
+    <!-- Main Content -->
     <main class="main-container">
-        <div class="section" data-name="HUB Juego">
-            <img src="images/game.jpg" alt="HUB Juego">
-            <p>HUB Juego</p>
+        <div class="section" data-name="HUB de Juego" id="hub-juego">
+            <p>HUB de Juego</p>
         </div>
-        <div class="section" data-name="HUB Estudio">
-            <img src="images/study.jpg" alt="HUB Estudio">
-            <p>HUB Estudio</p>
+        <div class="section" data-name="HUB de Educación" id="hub-educacion">
+            <p>HUB de Educación</p>
         </div>
-        <div class="section" data-name="HUB Entretenimiento">
-            <img src="images/entertainment.jpg" alt="HUB Entretenimiento">
-            <p>HUB Entretenimiento</p>
+        <div class="section" data-name="HUB de Entretenimiento" id="hub-entretenimiento">
+            <p>HUB de Entretenimiento</p>
         </div>
-        <div class="section" data-name="HUB Trabajo">
-            <img src="images/work.jpg" alt="HUB Trabajo">
-            <p>HUB Trabajo</p>
+        <div class="section" data-name="HUB de Trabajo" id="hub-trabajo">
+            <p>HUB de Trabajo</p>
         </div>
     </main>
 
-    <!-- Pie de página -->
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Metaludix. Todos los derechos reservados.</p>
+        <p>&copy; 2024 MetaLudix. Todos los derechos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
