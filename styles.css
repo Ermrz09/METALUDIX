@@ -9,10 +9,12 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    overflow: hidden; /* Evitar scroll innecesario */
+    overflow: hidden;
+    background: #0F0F1C;
+    color: #E4F9FF;
 }
 
-/* Fondo de la cámara */
+/* Camera Background */
 .camera-background {
     position: absolute;
     top: 0;
@@ -21,53 +23,79 @@ html, body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
-    background: transparent; /* Cambia si la cámara no funciona */
+    background: transparent;
 }
 
 #camera-stream {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajusta el video al contenedor */
-    display: none; /* Mostrar solo si la cámara está activa */
-    opacity: 1; /* Sin opacidad */
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    display: none;
 }
 
-/* Encabezado */
+/* Infinite Background (Fallback) */
+.infinite-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(135deg, #0F0F1C, #1F1F3E, #0F0F1C);
+    animation: scroll-background 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes scroll-background {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+
+/* Header */
 header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    width: 100%;
-    padding: 10px 20px;
-    background-color: rgba(31, 31, 62, 0.8); /* Fondo semitransparente */
-    z-index: 1;
-}
-
-/* Logo animado */
-.logo {
-    font-size: 2rem;
-    color: #c0c0c0; /* Color silver */
-    text-transform: uppercase;
-    display: flex;
     justify-content: center;
-    gap: 5px; /* Espacio entre letras */
-    perspective: 1000px;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
 }
 
-.logo span {
-    display: inline-block;
-    transform: scale(1);
-    animation: grow-sequential 2s infinite ease-in-out;
+/* Logo */
+.logo {
+    font-size: 3rem;
+    color: silver;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
 }
 
-.logo span:nth-child(1) { animation-delay: 0s; }
-.logo span:nth-child(2) { animation-delay: 0.2s; }
-.logo span:nth-child(3) { animation-delay: 0.4s; }
-.logo span:nth-child(4) { animation-delay: 0.6s; }
-.logo span:nth-child(5) { animation-delay: 0.8s; }
-.logo span:nth-child(6) { animation-delay: 1s; }
+/* Wave Effect */
+.wave {
+    animation: wave 3s infinite ease-in-out;
+    text-shadow: 2px 2px 5px rgba(192, 192, 192, 0.5), 0 0 10px rgba(255, 255, 255, 0.3);
+}
 
-@keyframes grow-sequential {
+.wave:nth-child(1) { animation-delay: 0s; }
+.wave:nth-child(2) { animation-delay: 0.3s; }
+.wave:nth-child(3) { animation-delay: 0.6s; }
+.wave:nth-child(4) { animation-delay: 0.9s; }
+.wave:nth-child(5) { animation-delay: 1.2s; }
+.wave:nth-child(6) { animation-delay: 1.5s; }
+.wave:nth-child(7) { animation-delay: 1.8s; }
+.wave:nth-child(8) { animation-delay: 2.1s; }
+.wave:nth-child(9) { animation-delay: 2.4s; }
+
+@keyframes wave {
     0%, 100% {
         transform: scale(1);
     }
@@ -76,25 +104,26 @@ header {
     }
 }
 
-/* Botón de Iniciar Sesión */
-.login-btn {
-    background: linear-gradient(145deg, #00C8FF, #1F1F3E);
-    border: none;
+/* Fullscreen Button */
+.fullscreen-btn {
     padding: 10px 20px;
+    background: linear-gradient(145deg, #00C8FF, #1F1F3E);
     color: white;
+    border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 1rem;
     box-shadow: 0 5px 10px rgba(0, 200, 255, 0.5);
+    perspective: 1000px;
     transition: transform 0.5s, box-shadow 0.2s;
 }
 
-.login-btn:hover {
-    transform: rotateY(360deg);
+.fullscreen-btn:hover {
+    transform: rotateY(360deg) scale(1.1);
     box-shadow: 0 10px 20px rgba(0, 200, 255, 0.8);
 }
 
-/* Secciones */
+/* Main Content */
 .main-container {
     display: flex;
     flex-wrap: wrap;
@@ -105,42 +134,69 @@ header {
 }
 
 .section {
-    width: 150px;
+    width: 200px;
     height: 200px;
-    background-color: rgba(31, 31, 62, 0.8);
-    border-radius: 15px;
+    background: rgba(31, 31, 62, 0.8);
+    color: white;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
     cursor: pointer;
 }
 
 .section:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(106, 13, 173, 0.8);
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(106, 13, 173, 0.8);
 }
 
-.section img {
-    width: 80%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.section p {
-    font-size: 1rem;
-    text-align: center;
-    color: #A4FF8F;
-}
-
-/* Pie de página */
+/* Footer */
 footer {
     width: 100%;
     text-align: center;
-    background-color: rgba(31, 31, 62, 0.8);
     padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    z-index: 10;
+}
+
+/* Boxi */
+.boxi {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.boxi-head {
+    width: 50px;
+    height: 50px;
+    background: #00C8FF;
+    border-radius: 50%;
+    box-shadow: 0 5px 10px rgba(0, 200, 255, 0.5);
+}
+
+.boxi-body {
+    width: 30px;
+    height: 50px;
+    background: #00C8FF;
+    border-radius: 15px;
+    margin-top: -10px;
+}
+
+.boxi-message {
+    background: rgba(0, 0, 0, 0.8);
     color: #E4F9FF;
-    z-index: 1;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
