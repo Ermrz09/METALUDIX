@@ -1,34 +1,79 @@
-// Seleccionar el elemento de video y el contenedor del fondo
-const video = document.getElementById('camera-stream');
-const cameraBackground = document.querySelector('.camera-background');
+// Variables
+const boxiMessage = document.getElementById('boxi-message');
+let isListening = false;
 
-// Intentar activar la cámara trasera
-navigator.mediaDevices
-    .getUserMedia({
-        video: { facingMode: "environment" }, // Solicitar cámara trasera
-        audio: false
-    })
-    .then((stream) => {
-        // Configurar el flujo de video como fondo
-        video.srcObject = stream;
-        video.style.display = "block"; // Mostrar el video
-        cameraBackground.style.background = "transparent"; // Eliminar fondo metálico
-    })
-    .catch((err) => {
-        // Manejar errores y mostrar fondo personalizado
-        console.error('No se pudo acceder a la cámara:', err);
-        cameraBackground.style.background = "url('https://drive.google.com/uc?id=1HmlhOA_NHFU7rzXtpa4IcUJW6GBFZEEO') no-repeat center center";
-        cameraBackground.style.backgroundSize = "cover"; // Ajustar fondo
-    });
+// Voice Recognition Setup
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-// Configurar el efecto animado en el logo
-const logo = document.querySelector('.logo');
-const text = logo.textContent;
-logo.innerHTML = ''; // Limpia el contenido
+if (SpeechRecognition) {
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'es-ES';
+    recognition.interimResults = false;
+    recognition.continuous = true;
 
-// Divide las letras y las envuelve en spans
-text.split('').forEach(letter => {
-    const span = document.createElement('span');
-    span.textContent = letter;
-    logo.appendChild(span);
-});
+    // Start recognition and always reset after usage
+    function startRecognition() {
+        recognition.start();
+        boxiMessage.innerText = 'Di "Boxi" para activar comandos.';
+    }
+
+    recognition.onresult = (event) => {
+        const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+
+        if (transcript.includes('boxi')) {
+            isListening = true;
+            boxiMessage.innerText = '¡Boxi está escuchando! Di un comando.';
+        } else if (isListening) {
+            if (transcript.includes('pantalla completa') || transcript.includes('fullscreen')) {
+                toggleFullScreen();
+                boxiMessage.innerText = 'Pantalla completa activada.';
+            } else if (transcript.includes('hub de juego')) {
+                document.getElementById('hub-juego').scrollIntoView({ behavior: 'smooth' });
+                boxiMessage.innerText = 'Abriendo HUB de Juego.';
+            } else if (transcript.includes('hub de educación')) {
+                document.getElementById('hub-educacion').scrollIntoView({ behavior: 'smooth' });
+                boxiMessage.innerText = 'Abriendo HUB de Educación.';
+            } else if (transcript.includes('hub de entretenimiento')) {
+                document.getElementById('hub-entretenimiento').scrollIntoView({ behavior: 'smooth' });
+                boxiMessage.innerText = 'Abriendo HUB de Entretenimiento.';
+            } else if (transcript.includes('hub de trabajo')) {
+                document.getElementById('hub-trabajo').scrollIntoView({ behavior: 'smooth' });
+                boxiMessage.innerText = 'Abriendo HUB de Trabajo.';
+            } else {
+                boxiMessage.innerText = 'Comando no reconocido. Intenta de nuevo.';
+            }
+            isListening = false;
+        }
+    };
+
+    recognition.onerror = (event) => {
+        console.error('Error en el reconocimiento de voz:', event.error);
+        boxiMessage.innerText = 'Error al escuchar. Reiniciando...';
+        startRecognition(); // Restart recognition on error
+    };
+
+    recognition.onend = () => {
+        // Always restart recognition when it stops
+        startRecognition();
+    };
+
+    // Start recognition for the first time
+    startRecognition();
+} else {
+    boxiMessage.innerText = 'Tu navegador no soporta reconocimiento de voz.';
+}
+
+// Fullscreen toggle function
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch((err) => {
+            console.error(`Error attempting fullscreen: ${err.message}`);
+            boxiMessage.innerText = 'No se pudo activar pantalla completa.';
+        });
+    } else {
+        document.exitFullscreen().catch((err) => {
+            console.error(`Error exiting fullscreen: ${err.message}`);
+            boxiMessage.innerText = 'No se pudo salir de pantalla completa.';
+        });
+    }
+}
