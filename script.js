@@ -1,20 +1,25 @@
 // Variables
 const boxiMessage = document.getElementById('boxi-message');
 let isListening = false;
+
 // Voice Recognition Setup
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
 if (SpeechRecognition) {
     const recognition = new SpeechRecognition();
     recognition.lang = 'es-ES';
     recognition.interimResults = false;
     recognition.continuous = true;
+
     // Start recognition and always reset after usage
     function startRecognition() {
         recognition.start();
         boxiMessage.innerText = 'Di "Boxi" para activar comandos.';
     }
+
     recognition.onresult = (event) => {
         const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+
         if (transcript.includes('boxi')) {
             isListening = true;
             boxiMessage.innerText = '¡Boxi está escuchando! Di un comando.';
@@ -40,20 +45,24 @@ if (SpeechRecognition) {
             isListening = false;
         }
     };
+
     recognition.onerror = (event) => {
         console.error('Error en el reconocimiento de voz:', event.error);
         boxiMessage.innerText = 'Error al escuchar. Reiniciando...';
         startRecognition(); // Restart recognition on error
     };
+
     recognition.onend = () => {
         // Always restart recognition when it stops
         startRecognition();
     };
+
     // Start recognition for the first time
     startRecognition();
 } else {
     boxiMessage.innerText = 'Tu navegador no soporta reconocimiento de voz.';
 }
+
 // Fullscreen toggle function
 function toggleFullScreen() {
     if (!document.fullscreenElement) {
