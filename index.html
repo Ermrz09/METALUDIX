@@ -1,54 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MetaLudix</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MetaLudix</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Background container -->
-    <div class="camera-background">
+<!-- Background container -->
+<div class="camera-background">
+        <video id="camera-stream" autoplay playsinline muted></video>
+        <div class="infinite-background"></div>
         <div id="panorama" class="panorama"></div>
-    </div>
+</div>
 
-    <!-- Header -->
-    <header>
-        <h1 class="logo">
-            <span class="wave large">M</span>
-            <span class="wave">E</span>
-            <span class="wave">T</span>
-            <span class="wave">A</span>
-            <span class="wave large">L</span>
-            <span class="wave">U</span>
-            <span class="wave">D</span>
-            <span class="wave">I</span>
-            <span class="wave">X</span>
-        </h1>
-        <button class="fullscreen-btn" onclick="toggleFullScreen()">Pantalla Completa</button>
-    </header>
+<!-- Header -->
+<header>
+<h1 class="logo">
+<span class="wave large">M</span>
+<span class="wave">E</span>
+<span class="wave">T</span>
+<span class="wave">A</span>
+<span class="wave large">L</span>
+<span class="wave">U</span>
+<span class="wave">D</span>
+<span class="wave">I</span>
+<span class="wave">X</span>
+</h1>
+<button class="fullscreen-btn" onclick="toggleFullScreen()">Pantalla Completa</button>
+</header>
 
-    <!-- Main Content -->
-    <main class="main-container">
-        <div class="section" data-name="HUB de Juego" id="hub-juego">
-            <p>HUB de Juego</p>
-        </div>
-        <div class="section" data-name="HUB de Educación" id="hub-educacion">
-            <p>HUB de Educación</p>
-        </div>
-        <div class="section" data-name="HUB de Entretenimiento" id="hub-entretenimiento">
-            <p>HUB de Entretenimiento</p>
-        </div>
-        <div class="section" data-name="HUB de Trabajo" id="hub-trabajo">
-            <p>HUB de Trabajo</p>
-        </div>
-    </main>
+<!-- Main Content -->
+<main class="main-container">
+<div class="section" data-name="HUB de Juego" id="hub-juego">
+<p>HUB de Juego</p>
+</div>
+<div class="section" data-name="HUB de Educación" id="hub-educacion">
+<p>HUB de Educación</p>
+</div>
+<div class="section" data-name="HUB de Entretenimiento" id="hub-entretenimiento">
+<p>HUB de Entretenimiento</p>
+</div>
+<div class="section" data-name="HUB de Trabajo" id="hub-trabajo">
+<p>HUB de Trabajo</p>
+</div>
+</main>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 MetaLudix. Todos los derechos reservados.</p>
-    </footer>
+<!-- Footer -->
+<footer>
+<p>&copy; 2024 MetaLudix. Todos los derechos reservados.</p>
+</footer>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
