@@ -34,3 +34,13 @@ function toggleFullScreen() {
         }
     }
 }
+
+// Track Mouse Movements for 360 Effect
+document.addEventListener('mousemove', function(event) {
+    const panorama = document.getElementById('panorama');
+    const x = (event.clientX / window.innerWidth) * 100;
+    const y = (event.clientY / window.innerHeight) * 100;
+    
+    // Adjust the background position based on mouse movement
+    panorama.style.backgroundPosition = `${x}% ${y}%`;
+});
