@@ -1,0 +1,62 @@
+import Head from 'next/head';
+
+export default function Home() {
+  return (
+    <div className="bg-gray-900 text-white min-h-screen">
+      <Head>
+        <title>Metaludix</title>
+        <meta name="description" content="Explora el futuro con Metaludix, una experiencia inmersiva con VR, IA y gestos interactivos." />
+      </Head>
+
+      <header className="flex justify-between items-center p-5 bg-gray-800 shadow-lg">
+        <div className="text-2xl font-bold">Metaludix</div>
+        <nav>
+          <ul className="flex space-x-6">
+            <li><a href="#intro" className="hover:text-blue-400">Inicio</a></li>
+            <li><a href="#features" className="hover:text-blue-400">Características</a></li>
+            <li><a href="#hubs" className="hover:text-blue-400">Hubs</a></li>
+            <li><a href="#contact" className="hover:text-blue-400">Contacto</a></li>
+          </ul>
+        </nav>
+        <button className="bg-blue-500 px-4 py-2 rounded-lg hover:bg-blue-600">Iniciar Sesión</button>
+      </header>
+      
+      <section id="intro" className="text-center py-20">
+        <h1 className="text-4xl font-bold">Explora el Futuro con Metaludix</h1>
+        <p className="mt-4">Una experiencia inmersiva que combina VR, IA y gestos interactivos.</p>
+        <button className="mt-6 bg-green-500 px-6 py-3 rounded-lg hover:bg-green-600">Explorar</button>
+      </section>
+      
+      <section id="features" className="py-20 text-center">
+        <h2 className="text-3xl text-blue-400 font-semibold">Características Principales</h2>
+        <ul className="mt-6 space-y-4">
+          <li>🔹 Interactividad VR</li>
+          <li>🔹 Diseño Futurista</li>
+          <li>🔹 Multi-Plataforma</li>
+        </ul>
+      </section>
+      
+      <section id="hubs" className="py-20 text-center">
+        <h2 className="text-3xl text-purple-400 font-semibold">Hubs Destacados</h2>
+        <div className="grid grid-cols-2 gap-6 mt-6">
+          <div className="p-6 bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-700">🎮 Hub de Juego</div>
+          <div className="p-6 bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-700">📚 Hub de Estudio</div>
+          <div className="p-6 bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-700">🎬 Hub de Entretenimiento</div>
+          <div className="p-6 bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-700">💼 Hub de Trabajo</div>
+        </div>
+      </section>
+      
+      <section id="contact" className="py-20 text-center">
+        <h2 className="text-3xl text-green-400 font-semibold">Contacto</h2>
+        <form className="mt-6">
+          <input type="email" placeholder="Tu correo" className="p-3 w-80 rounded-md text-black" required />
+          <button type="submit" className="ml-3 bg-blue-500 px-6 py-3 rounded-lg hover:bg-blue-600">Registrarse</button>
+        </form>
+      </section>
+      
+      <footer className="py-6 text-center bg-gray-800">
+        <p>&copy; 2025 Metaludix - Todos los derechos reservados</p>
+      </footer>
+    </div>
+  );
+}
